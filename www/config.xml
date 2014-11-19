@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.inyourhands"
+        version   = "6.5.6">
+    <name>In Your Hands</name>
+
+    <description>
+        First Version of the In Your Hands App
+    </description>
+
+    <author href="http://spaceshiplabs.com" email="erick@spaceshiplabs.com">
+        Spaceshiplabs
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+
+    <preference name="phonegap-version" 				value="2.9.0" />
+    <preference name="orientation"      				value="portrait" />
+    <preference name="target-device"    				value="universal" />
+    <preference name="fullscreen"       				value="false" />
+	<preference name="show-splash-screen-spinner" 		value="true" />
+	<preference name="auto-hide-splash-screen" 			value="true" />
+	<preference name="splash-screen-duration" 			value="2900" />
+	<preference name="OpenAllWhitelistURLsInWebView" 	value="No" />
+	
+	<icon src="icon.png" />
+	<icon src="icon-57.png" 			gap:platform="android"		gap:density="hdpi" />
+	<icon src="icon-72.png" 			gap:platform="android"		gap:density="xhdpi" />
+    <icon src="icon-57.png"				gap:platform="ios"			width="57" height="57" />
+    <icon src="icon-72.png"				gap:platform="ios"			width="72" height="72" />
+	
+	<gap:splash src="ldpi.png" 				gap:platform="android" 	gap:density="ldpi" />
+	<gap:splash src="mdpi.png" 				gap:platform="android" 	gap:density="mdpi" />
+	<gap:splash src="hdpi.png" 				gap:platform="android" 	gap:density="hdpi" />
+	<gap:splash src="xhdpi.png" 			gap:platform="android" 	gap:density="xhdpi" />
+	<gap:splash src="Default.png" 			gap:platform="ios" 		width="320" height="480" />
+	<gap:splash src="Default_at_2x.png" 	gap:platform="ios" 		width="640" height="960" />
+	<gap:splash src="default-568h@2x.png" 	gap:platform="ios" 		width="640" height="1136" />
+	
+	<plugin name="Geolocation" value="CDVLocation" />
+	<plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
+	
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	
+	<plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+	<feature name="InAppBrowser">
+		<param name="android-package" value="org.apache.cordova.InAppBrowser" />
+	</feature>
+	<feature name="InAppBrowser">
+		<param name="ios-package" value="CDVInAppBrowser" />
+	</feature>
+	<plugin name="ChildBrowser" value="com.phonegap.plugins.childBrowser.ChildBrowser"/>
+	
+	<access origin="*" browserOnly="true" />
+	
+</widget>

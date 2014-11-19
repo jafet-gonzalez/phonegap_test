@@ -1,0 +1,601 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>In Your Hands</title>
+
+	<link rel="stylesheet" href="assets/css/jquery.mobile.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<script type="text/javascript" charset="utf-8" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/jquery.mobile.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/iscroll.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/jquery.fastLiveFilter.js"></script>
+	
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="cordova-3.0.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+	
+	
+	<script type="text/javascript" charset="utf-8" src="assets/js/listing.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/event.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/clasified.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/main.js"></script>
+	<script type="text/javascript" charset="utf-8" src="assets/js/interactions.js"></script>
+	
+	
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	
+</head>
+
+<body class="theme ui-mobile-viewport ui-overlay-c" id="stage">
+
+<!-- Página del loader inicial -->
+<div id="mainpage" data-role="page" data-url="mainpage" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 181px;"> 
+	<div class="content ui-content" data-role="content" role="main">
+		<img class="logo" src="assets/img/logo_vertical.png" alt="">
+		<img class="background" src="assets/img/background.jpg" alt="">
+	</div>
+</div>
+<!-- Página principal del search -->
+<div id="search" data-role="page" data-url="search"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container center"><img alt="logo" class="logo" src="assets/img/logoIYH.png"></div>
+	</div>
+	<div class="content" data-role="content">
+		<div class="background_wrapper"><img class="background general1" src="assets/img/background.jpg" alt=""></div>
+		<form>
+			<div class="contenido">
+				<h3>Buscar</h3>
+				<input type="search" value="" id="keyword" name="keyword">
+				<fieldset class="ui-grid-b typeSearch">
+					<div class="ui-block-a item">
+						<input type="checkbox" checked="checked" value="N" class="custom" data-theme="a" id="checkbox-1" name="checkbox-1">
+						<label for="checkbox-1">Negocios</label>
+					</div>
+					<div class="ui-block-b item">
+						<input type="checkbox" value="E" class="custom" data-theme="a" id="checkbox-2" name="checkbox-2">
+						<label for="checkbox-2">Eventos</label>
+					</div>
+					<div class="ui-block-c item">
+						<input type="checkbox" value="C" class="custom" data-theme="a" id="checkbox-3" name="checkbox-3">
+						<label for="checkbox-3">Clasificados</label>
+					</div>
+				</fieldset>
+			</div>
+			<div class="submit_button"><button data-theme="a" type="submit">Buscar</button></div>
+		</form>
+		<div class='slogan'>
+			<h1><strong>Tu </strong><span class='italic'>negocio</span></h1>
+			<h2>en <strong>tus manos </strong></h2>
+			<h1 id='geolocation'></h1>
+		</div>
+		
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+<!-- Página acerca de nosotros -->
+<div id="acerca" data-role="page" data-url="acerca"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container">
+			<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div>
+		</div>
+	</div>
+	<div class="content" data-role="content">
+		<img class="logo" src="assets/img/logo_hotizontal.png" alt="">
+		<img class="background" src="assets/img/background.jpg" alt="">
+		<div class="version">
+			<h2>Versión:</h2>
+			<p>6.5.1</p>
+		</div>
+		<div class="madeby">
+			<h2>Hecho por:</h2>
+			<p>In Your Hands</p>
+		</div>
+		<div class="copyright">
+			<p>Copyright 2012. Todos los derechos reservados</p>
+		</div>
+		<div class='slogan'>
+			<h1><strong>Tu </strong><span class='italic'>negocio</span></h1>
+			<h2>en <strong>tus manos </strong></h2>
+		</div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+<!-- Página de contacto -->
+<div id="contact" data-role="page" data-url="contact"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container">
+			<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div>
+		</div>
+	</div>
+	<div class="content" data-role="content">
+		<img class="logo" src="assets/img/logo_hotizontal.png" alt="">
+		<img class="background" src="assets/img/background.jpg" alt="">
+		<div class="phone">
+			<a data-role="button" href="tel:2518170">TEL. 2 51 81 70</a>
+		</div>
+		<div class="mail">
+			<a data-theme="a" data-iconpos="right" data-icon="arrow-r" data-role="button" href="mailto:publicidad@inyourhands.com">publicidad@inyourhands.com</a>
+		</div>
+		<div class='slogan'>
+			<h1><strong>Tu </strong><span class='italic'>negocio</span></h1>
+			<h2>en <strong>tus manos </strong></h2>
+		</div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+<!-- Página de la galería de los listing -->
+<div id="ListingGallery" data-role="page" data-url="ListingGallery"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container">
+			<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div>
+		</div>
+	</div>
+	<div class="content" data-role="content">
+		<div class="gallery">
+			<div class="slider" id="gallery-slider"><ul class="reel"></ul></div>
+		</div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+<!-- Página de la galería de los eventos -->
+<div id="EventGallery" data-role="page" data-url="EventGallery"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container"><a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div></div>
+	</div>
+	<div class="content" data-role="content">
+		<div class="gallery">
+			<div class="slider" id="gallery-slider2"><ul class="reel"></ul></div>
+		</div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+<!-- Página de los resultados de búsqueda de Listings -->
+<div id="ListingResults" data-role="page" data-url="ListingResults"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container">
+			<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a>
+			<h2 class='title padding'></h2>
+			<div class="clear"></div>
+		</div>
+	</div>		
+	<div class="content" data-role="content">
+		<input type="hidden" value="1" class="pagination" name="pagination">
+		<input type="hidden" value="" class="searching_" name="searching_">
+		<ul class="ui-listview" data-role="listview">
+			
+		</ul>
+	</div>
+		<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+	
+	<fieldset class="ui-grid-d lineFooter">
+		<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+		<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+		<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+		<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+		<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+	</fieldset>
+	<fieldset class="ui-grid-c lineFooter">
+		<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+		<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+	</fieldset>
+</div></div>	 </div>
+<!-- Página de los resultados de la búsqueda de Eventos -->
+<div id="EventResults" data-role="page" data-url="EventResults"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container"><a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div></div>
+	</div>
+	<div class="content" data-role="content">
+		<input type="hidden" value="1" class="pagination" name="pagination">
+		<input type="hidden" value="" class="searching_" name="searching_">
+		<ul class="ui-listview" data-role="listview"></ul>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página de resultados de la búsqueda de Clasificados -->
+<div id="ClasifiedResults" data-role="page" data-url="ClasifiedResults"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container"><a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div></div>
+	</div>		
+	<div class="content" data-role="content">
+		<input type="hidden" value="1" class="pagination" name="pagination">
+		<input type="hidden" value="" class="searching_" name="searching_">
+		<ul class="ui-listview" data-role="listview"></ul>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Págona individual del Listing -->
+<div id="ListingIndiv" data-role="page" data-url="ListingIndiv"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container">
+			<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a>
+			<h2 class='title padding'>Detalles</h2>
+		<div class="clear"></div></div>
+	</div>
+	<div class="content" data-role="content"><div class="container">
+		<div class="details"></div>
+		<div class="buttons"></div>
+	</div></div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>	 
+</div>
+
+<!-- Página individual del Evento -->
+<div id="EventIndiv" data-role="page" data-url="EventIndiv"> 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container"><a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div></div>
+	</div>
+	<div class="content" data-role="content"><div class="container">
+		<div class="details"></div>
+		<div class="buttons"></div>
+	</div></div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>	 
+</div>
+
+<!-- Página de los clasificados individuales -->
+<div id="ClasifiedIndiv" data-role="page" data-url="ClasifiedIndiv" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container"><a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a><div class="clear"></div></div>
+	</div>
+	<div class="content" data-role="content">
+		<div class="container">
+			<div class="details"></div>
+			<div class="buttons"></div>
+		</div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página para las categoiras elegidas de los listing -->
+<div id="categories" data-role="page" data-url="categories" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container center"><img alt="logo" class="logo" src="assets/img/logoIYH.png"></div>
+	</div>
+	<div class="content" data-role="content" id="topCatContent"></div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página de las categorias de los eventos -->
+<div id="eCategories" data-role="page" data-url="eCategories" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container center"><img alt="logo" class="logo" src="assets/img/logoIYH.png"></div>
+	</div>
+		<div class="content" data-role="content">
+			<div class="background_wrapper"><img class="background general1" src="assets/img/background.jpg" alt=""></div>
+			<div class='categoriesContent' id='ecategoriesContent'>
+				<ul></ul>
+			</div>
+		</div>
+		<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+<!-- Página de las categorias de los eventos -->
+<div id="cCategories" data-role="page" data-url="cCategories" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container center"><img alt="logo" class="logo" src="assets/img/logoIYH.png"></div>
+	</div>
+	<div class="content" data-role="content">
+		<div class="background_wrapper"><img class="background general1" src="assets/img/background.jpg" alt=""></div>
+		<div class='categoriesContent' id='ccategoriesContent'>
+			<!--<ul></ul>-->
+		</div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página con todas las categorias de los listings -->	
+<div id="allCategories" data-role="page" data-url="allCategories" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"> 
+		<div class="container center"><img alt="logo" class="logo" src="assets/img/logoIYH.png"></div>
+	</div>		
+	<div class="content" data-role="content">
+		<div class="background_wrapper"><img class="background general1" src="assets/img/background.jpg" alt=""></div>
+		<div class="categoriesContent" id='categoriesContent'></div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página del video del listing individual -->
+<div id="video" data-role="page" data-url="video" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"><div class="container">
+		<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a>
+		<div class='clear'></div>
+	</div></div>
+	<div class="content" data-role="content"></div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página de las reseñas del listing individual -->
+<div id="reviewsC" data-role="page" data-url="reviewsC" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"><div class="container">
+		<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a>
+		<h2 class='title padding'>Reseña</h2>
+		<div class='clear'></div>
+	</div></div>
+	<div class="content" data-role="content"><ul></ul></div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página para los mapas -->
+<div id="map" data-role="page" data-url="map" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"><div class="container">
+		<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a>
+		<h2 class='title padding'></h2>
+		<div class='clear'></div>
+	</div></div>
+	<div class="content" data-role="content"><div id='MapContent'></div></div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<!-- Página para las subcategorias -->
+<div id="subcategory" data-role="page" data-url="subcategories" > 
+	<div role="banner" data-id="header" data-position="fixed" class="header" data-role="header"><div class="container">
+		<a data-theme="a" data-inline="true" data-rel="back" data-role="button" href="#">Volver</a>
+		<h2 class='title padding'></h2>
+		<div class='clear'></div>
+	</div></div>
+	<div class="content" data-role="content">
+		<div class="background_wrapper"><img class="background general1" src="assets/img/background.jpg" alt=""></div>
+		<div class="categoriesContent"></div>
+	</div>
+	<div data-position="fixed" data-id="footer" class="footer" data-role="footer"><div class="container">
+		<fieldset class="ui-grid-d lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#search"><div class="ico busq"></div>Buscar</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#categories"><div class="ico cat"></div>Categorias</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#allCategories"><div class="ico list"></div>Listado</a></div>
+			<div class="ui-block-d item"><a class="ui-link" href="#eCategories"><div class="ico ev"></div>Eventos</a></div>
+			<div class="ui-block-e item"><a class="ui-link moreOptions" href="#more"><div class="ico mor"></div>Más</a></div>
+		</fieldset>
+		<fieldset class="ui-grid-c lineFooter">
+			<div class="ui-block-a item"><a class="ui-link" href="#contact"><div class="ico cont"></div>Contacto</a></div>
+			<div class="ui-block-c item"><a class="ui-link" href="#acerca"><div class="ico us"></div>Acerca de</a></div>
+			<div class="ui-block-b item"><a class="ui-link" href="#map"><div class="ico conf"></div>Config</a></div>
+			<div class="ui-block-c item"><a class="ui-link classified" href="#cCategories"><div class="ico list"></div>Clasificados</a></div>
+		</fieldset>
+	</div></div>
+</div>
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div>
+</body></html>
