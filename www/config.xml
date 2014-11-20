@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.inyourhands"
-        version   = "6.5.6">
-    <name>In Your Hands</name>
+        id        = "com.mymbu"
+        version   = "0.0.1">
+    <name>Mimbu</name>
 
     <description>
-        First Version of the In Your Hands App
+        Mimbu
     </description>
 
     <author href="http://spaceshiplabs.com" email="erick@spaceshiplabs.com">
@@ -22,8 +22,9 @@
 	<preference name="auto-hide-splash-screen" 			value="true" />
 	<preference name="splash-screen-duration" 			value="2900" />
 	<preference name="OpenAllWhitelistURLsInWebView" 	value="No" />
-	
-	<icon src="icon.png" />
+    <preference name="stay-in-webview"                  value="true" />
+
+    <icon src="icon.png" />
 	<icon src="icon-57.png" 			gap:platform="android"		gap:density="hdpi" />
 	<icon src="icon-72.png" 			gap:platform="android"		gap:density="xhdpi" />
     <icon src="icon-57.png"				gap:platform="ios"			width="57" height="57" />
